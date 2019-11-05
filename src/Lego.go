@@ -31,7 +31,7 @@ func Succ(in, out chan int) {
 		i := <-in
 		out <- i + 1
 	}
-	// TODO: Add implementation.
+	
 }
 
 // -----------------------------------------------------------------------------
@@ -43,7 +43,7 @@ func Sink(in chan int) {
 	for {
 		<-in
 	}
-	// TODO: Add implementation.
+
 }
 
 // -----------------------------------------------------------------------------
@@ -62,7 +62,7 @@ func Tail(in, out chan int) {
 
 	j := <-in
 	out <- j
-	// TODO: Add implementation.
+
 }
 
 // -----------------------------------------------------------------------------
@@ -82,7 +82,6 @@ func Prefix(n int, in, out chan int) {
 		j := <-in
 		out <- j
 	}
-	// TODO: Add implementation
 
 }
 
@@ -234,7 +233,6 @@ func DeltaWG(in, out_x, out_y chan int) {
 		}()
 		wg.Wait() //waiting until all go routines are finished
 	}
-	// TODO: Add implementation.
 }
 
 // -----------------------------------------------------------------------------
@@ -256,7 +254,6 @@ func Delta(in, out_x, out_y chan int) {
 			out_y <- i
 		})
 	}
-	// TODO: Add implementation.
 }
 
 // -----------------------------------------------------------------------------
@@ -273,7 +270,6 @@ func Nos(out chan int) {
 	go Prefix(0, z, x)
 	go Delta(x, y, out)
 	go Succ(y, z)
-	// TODO: Add implementation.
 }
 
 // -----------------------------------------------------------------------------
@@ -291,7 +287,6 @@ func Int(in, out chan int) {
 	go Prefix(0, y, z)
 	go Plus(in, z, x)
 	go Delta(x, out, y)
-	// TODO: Add implementation.
 }
 
 // -----------------------------------------------------------------------------
@@ -308,7 +303,6 @@ func Pairs(in, out chan int) {
 	go Delta(in, x, z)
 	go Tail(x, y)
 	go Plus(y, z, out)
-	// TODO: Add implementation.
 }
 
 // -----------------------------------------------------------------------------
@@ -326,7 +320,6 @@ func Fib(out chan int) {
 	go Prefix(0, w, x)
 	go Delta(x, y, out)
 	go Pairs(x, y)
-	// TODO: Add implementation.
 }
 
 // -----------------------------------------------------------------------------
@@ -341,5 +334,4 @@ func Squares(out chan int) {
 	go Nos(x)
 	go Int(x, y)
 	go Pairs(y, out)
-	// TODO: Add implementation.
 }
